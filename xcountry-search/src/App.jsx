@@ -70,7 +70,7 @@ function App() {
           ? filteredData.map((country, index) => {
               return (
                 <div
-                  className={styles.country}
+                  className={styles.countryCard}
                   key={`${country.common}_${index}`}
                 >
                   <img
@@ -86,7 +86,7 @@ function App() {
           : countries.map((country, index) => {
               return (
                 <div
-                  className={styles.country}
+                  className={styles.countryCard}
                   key={`${country.common}_${index}`}
                 >
                   <img
