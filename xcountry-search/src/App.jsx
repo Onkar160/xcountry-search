@@ -5,10 +5,15 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredData, updateFilteredData] = useState([]);
-  const [debounceTimer, setDebounceTimer] = useState(null);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
+  };
+
+  const toCamelCase = (str) => {
+    return str.toLowerCase().replace(/(?:(^.)|(\s+.))/g, function (match) {
+      return match.charAt(match.length - 1).toUpperCase();
+    });
   };
 
   const filterCountries = (countries, search) => {
@@ -25,13 +30,9 @@ function App() {
 
   useEffect(() => {
     if (search.length) {
-      if (debounceTimer) {
-        clearInterval(debounceTimer);
-      }
-      let debounce = setTimeout(() => {
-        filterCountries(countries, search);
-      }, 0);
-      setDebounceTimer(debounce);
+      let camcelCaseSearch = toCamelCase(search);
+      // console.log(camcelCaseSearch);
+      filterCountries(countries, camcelCaseSearch);
     }
   }, [search]);
 
