@@ -30,7 +30,7 @@ function App() {
       }
       let debounce = setTimeout(() => {
         filterCountries(countries, search);
-      }, 1000);
+      }, 500);
       setDebounceTimer(debounce);
     }
   }, [search]);
