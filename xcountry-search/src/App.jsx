@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./App.module.css";
+import "./App.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -56,7 +56,7 @@ function App() {
 
   return (
     <div>
-      <div className={styles.input_wrapper}>
+      <div className="input_wrapper">
         <input
           type="text"
           value={search}
@@ -65,14 +65,11 @@ function App() {
         />
       </div>
 
-      <div className={styles.country_box}>
+      <div className="country_box">
         {search.length
           ? filteredData.map((country, index) => {
               return (
-                <div
-                  className={styles.countryCard}
-                  key={`${country.common}_${index}`}
-                >
+                <div className="countryCard" key={`${country.common}_${index}`}>
                   <img
                     src={country.png}
                     alt={country.common}
@@ -85,10 +82,7 @@ function App() {
             })
           : countries.map((country, index) => {
               return (
-                <div
-                  className={styles.countryCard}
-                  key={`${country.common}_${index}`}
-                >
+                <div className="countryCard" key={`${country.common}_${index}`}>
                   <img
                     src={country.png}
                     alt={country.common}
